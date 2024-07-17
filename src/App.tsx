@@ -1,22 +1,19 @@
-import React from 'react';
+import "./index.css";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { SearchProvider } from './context/SearchContext';
 
-type SearchResult = {
-  id: string;
-  title: string;
-  url: string;
-  description: string;
-  category: 'VIDEOS' | 'PLAYLISTS' | 'BLOG_POSTS';
-};
+import Home from "./pages/home";
+
+const queryClient = new QueryClient();
 
 function App() {
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <h1>Search UI Challenge</h1>
-                [Your UI here]
-            </header>
-        </div>
+        <QueryClientProvider client={queryClient}>
+            <SearchProvider>
+                <Home />
+            </SearchProvider>
+        </QueryClientProvider>
     );
 }
 
