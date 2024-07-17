@@ -33,7 +33,7 @@ const SearchResults: React.FC = () => {
 
   if (results.length === 0) {
     return (
-      <div className="p-4 text-center w-full max-w-2xl">
+      <div className="p-4 text-center w-full max-w-2xl" data-testid="no-results">
         <p>There are no results matching your query.</p>
       </div>
     );

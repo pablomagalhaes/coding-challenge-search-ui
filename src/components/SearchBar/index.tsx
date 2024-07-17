@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useSearch } from '../../context/SearchContext';
 import { useQueryClient } from '@tanstack/react-query';
+// UI Components
+import Input from '../ui/Input';
+import Button from '../ui/Button';
 
 const SearchBar: React.FC = () => {
   const { setQuery, setResults } = useSearch();
@@ -31,20 +34,18 @@ const SearchBar: React.FC = () => {
 
   return (
     <div className="flex items-center justify-center p-4 w-full max-w-2xl">
-      <input
+      <Input
+        data-testid="search-input"
         type="text"
-        className="border p-2 rounded-lg mr-2 w-full"
         value={inputValue}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
         placeholder="Search..."
+        className="border p-2 rounded-lg mr-2 w-full"
       />
-      <button
-        onClick={handleSearch}
-        className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600"
-      >
+      <Button onClick={handleSearch} className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600" data-testid="search-button">
         Search
-      </button>
+      </Button>
     </div>
   );
 };
